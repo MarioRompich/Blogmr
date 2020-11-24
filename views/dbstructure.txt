@@ -1,0 +1,85 @@
+/*
+SQLyog Professional v12.4.3 (64 bit)
+MySQL - 10.4.14-MariaDB : Database - blog
+*********************************************************************
+*/
+
+/*!40101 SET NAMES utf8 */;
+
+/*!40101 SET SQL_MODE=''*/;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`blog` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+
+USE `blog`;
+
+/*Table structure for table `posts` */
+
+DROP TABLE IF EXISTS `posts`;
+
+CREATE TABLE `posts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `postBy` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `abstract` varchar(255) DEFAULT NULL,
+  `content` text DEFAULT NULL,
+  `thumb` varchar(100) DEFAULT NULL,
+  `estado` int(11) DEFAULT NULL,
+  `creatAt` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updateAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `posts` */
+
+insert  into `posts`(`id`,`postBy`,`title`,`abstract`,`content`,`thumb`,`estado`,`creatAt`,`updateAt`) values 
+(1,'mrompich','DJ Fisher','Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod','Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercation ullamco laboris nisi ut aliquip ex ea commodo\r\n','fisher.jpg',1,'2020-11-02 18:25:08','2020-11-05 00:31:08'),
+(2,'mrompich','SECOND TITLE','Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod','Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercation ullamco laboris nisi ut aliquip ex ea commodo','lost.jpg',1,'2020-11-02 18:25:08','2020-11-04 23:55:22'),
+(3,'mrompich','THIRD TITLE','Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod','Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercation ullamco laboris nisi ut aliquip ex ea commodo','rehab.jpg',0,'2020-11-02 18:25:08','2020-11-03 18:33:11'),
+(4,'mrompich','FOURTH TITLE','Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod','Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercation ullamco laboris nisi ut aliquip ex ea commodo','harris.jpg',1,'2020-11-02 18:25:08','2020-11-04 23:55:26'),
+(65,'mrompich','The Chainsmokers','The chainsmoker is a dj duo from Netherlandas','I lover their music, because a like it special i love the song colled Do not let me dow, I am get exited whe i lisent that song.','20201106025404.jpg',1,'2020-11-05 19:54:04','2020-11-05 19:54:04'),
+(66,'mrompich','Dimitri vegas & Like Mike','sdfg','ssdfg','20201106030131.jpg',1,'2020-11-05 19:59:26','2020-11-06 18:12:49'),
+(69,'mrompich','DJ Deorro','Deorro is a international dj from Mexico.','','20201107031559.jpg',1,'2020-11-06 20:15:59','2020-11-06 20:15:59'),
+(80,'ana','S','The chainsmoker is a dj duo from Netherlandas','adsf','20201108010452.jpg',1,'2020-11-07 18:04:52','2020-11-07 18:04:52'),
+(81,'ana','causas de las enfermedades','asd','dsf','20201108010726.jpg',1,'2020-11-07 18:07:26','2020-11-07 18:07:26'),
+(83,'ana','laboratorio','asdf','adf','20201108010939.jpg',1,'2020-11-07 18:09:39','2020-11-07 18:09:39'),
+(84,'ana','r','ad','d','20201108011012.jpg',1,'2020-11-07 18:10:12','2020-11-07 18:10:12'),
+(88,'ana','a','a','a','20201108011513.jpg',1,'2020-11-07 18:15:13','2020-11-07 18:15:13'),
+(89,'ana','a','a','a','20201108011516.jpg',1,'2020-11-07 18:15:16','2020-11-07 18:15:16'),
+(90,'ana','t','t','t','20201108011705.jpg',1,'2020-11-07 18:17:05','2020-11-07 18:17:05'),
+(91,'ana','x','x','x','20201108011735.jpg',1,'2020-11-07 18:17:35','2020-11-07 18:17:35'),
+(92,'ana',';',';',';','20201108011824.jpg',0,'2020-11-07 18:18:24','2020-11-07 18:18:24'),
+(93,'Roberto','DJ mag','asdf','asdf','20201108012113.jpg',1,'2020-11-07 18:21:13','2020-11-07 18:21:13'),
+(94,'ana','casas','The chainsmoker is a dj duo from Netherlandas','Un texto es una composición de signos codificados en un sistema de escritura que forma una unidad de sentido. También es una composición de caracteres ...','20201108012713.jpg',1,'2020-11-07 18:27:13','2020-11-07 18:27:13');
+
+/*Table structure for table `users` */
+
+DROP TABLE IF EXISTS `users`;
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(250) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  `clave` varchar(500) DEFAULT NULL,
+  `retypeClave` varchar(500) DEFAULT NULL,
+  `creatAt` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updateAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `users` */
+
+insert  into `users`(`id`,`email`,`username`,`clave`,`retypeClave`,`creatAt`,`updateAt`) values 
+(1,'rompich.mario@gmail.com','mrompich','mrompich',NULL,'2020-10-31 04:59:00','2020-11-07 17:30:00'),
+(4,'rompich.mario@gmail.com','ana','e79cdea58c7a737c83877973e20ce22ee183a9d265629245616ec76e8b472c6a9e073bd9af03bd5bfe1d3570f93b69dfb54cf283ae373c5918f7a8ea565b79c3','e79cdea58c7a737c83877973e20ce22ee183a9d265629245616ec76e8b472c6a9e073bd9af03bd5bfe1d3570f93b69dfb54cf283ae373c5918f7a8ea565b79c3','2020-11-07 17:30:46','2020-11-07 17:30:46'),
+(5,'rompich.mario@gmail.com','Roberto','9f3d2d9e76ce4013d97a5f8d4fbacd4cd25649b65853fb35b0561a1b3e02c6e4a8d9fba76766f003631477c696f26e00206bcf8e6b1d051175cfffb2a9f723a7','9f3d2d9e76ce4013d97a5f8d4fbacd4cd25649b65853fb35b0561a1b3e02c6e4a8d9fba76766f003631477c696f26e00206bcf8e6b1d051175cfffb2a9f723a7','2020-11-07 17:36:37','2020-11-07 17:36:37'),
+(6,'rompich.mario@gmail.com','casas','c785ce709714e2ab937b1fd98b79c40b905714a6f278e31960bab448a8b2f9717135faea9af7d44db990e8eaf8474e0a87ef7068342042f85adf8651a7bc3a15','c785ce709714e2ab937b1fd98b79c40b905714a6f278e31960bab448a8b2f9717135faea9af7d44db990e8eaf8474e0a87ef7068342042f85adf8651a7bc3a15','2020-11-07 17:37:38','2020-11-07 17:37:38'),
+(7,'ana55rompich@gmail.com','ana','ec4897fbc206d190c633aaf39241f71c90f6f3cc6c0ff97500de94a86d16eaf4268a89d3b2ba425094708b665bc010b6ab962c2d1f346e8c74e5c392ab949d58','ec4897fbc206d190c633aaf39241f71c90f6f3cc6c0ff97500de94a86d16eaf4268a89d3b2ba425094708b665bc010b6ab962c2d1f346e8c74e5c392ab949d58','2020-11-07 18:24:45','2020-11-07 18:24:45');
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
